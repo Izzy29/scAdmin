@@ -23,6 +23,15 @@
     margin-bottom: 20px;
 }
 
+.belowImg {
+    text-align: center;
+}
+
+.status1 {
+    padding: 10px 0px 0px 0px;
+    font-weight: bold;
+}
+
 .formContainer {
     flex: 3;
     background-color: var(--bgSoft);

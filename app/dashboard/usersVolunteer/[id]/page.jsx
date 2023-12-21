@@ -1,39 +1,36 @@
-import styles from '@/app/ui/dashboard/users/singleUserVolunteer/singleUserVolunteer.module.css'
+import { handleViewVolunteer } from '@/app/lib/actions';
+import { fetchUserVolunteer } from '@/app/lib/data';
+import styles from '@/app/ui/dashboard/users/singleUser/singleUserVolunteer.module.css'
+import { redirect } from 'next/dist/server/api-utils';
 import Image from 'next/image'
 
-const SingleUserVolunteerPage = () => {
+const SingleUserVolunteerPage = async ({ params }) => {
+
+    const { id } = params;
+    const user = await fetchUserVolunteer(id);
+
     return (
         <div className={styles.container}>
             <div className={styles.infoContainer}>
                 <div className={styles.imgContainer}>
-                    <Image src="/noavatar.png" alt="" fill />
+                    <Image src={user.img || "/noavatar.png"} alt="" fill />
                 </div>
-                Muhammad Rafiq
+                <div className={styles.belowImg}>
+                    {user.volunteername}
+                </div>
 
             </div>
             <div className={styles.formContainer}>
-                <form action="" className={styles.form}>
-                    <label>Username</label>
-                    <input type="text" name="username" placeholder="MuhammadRafiq" />
-                    <label>Email</label>
-                    <input type="email" name="email" placeholder="rafiq@gmail.com" />
-                    <label>Password</label>
-                    <input type="password" name="password" />
-                    <label>Phone</label>
-                    <input type="text" name="phone" placeholder="011029384623" />
-                    <label>Address</label>
-                    <textarea type="text" name="address" placeholder="Kajang, Selangor" />
-                    <label>Is Admin?</label>
-                    <select name="isAdmin" id="isAdmin">
-                        <option value={true}>Yes</option>
-                        <option value={false}>No</option>
-                    </select>
-                    <label>Is Active?</label>
-                    <select name="isActive" id="isActive">
-                        <option value={true}>Yes</option>
-                        <option value={false}>No</option>
-                    </select>
-                    <button>Update</button>
+                <form action={handleViewVolunteer} className={styles.form}>
+                    <label>Volunteer Name</label>
+                    <input type="text" name="volunteername" placeholder={user.volunteername} readOnly />
+                    <label>Registration Date</label>
+                    <input type="text" name="registrationdate" placeholder={user.registrationdate} readOnly />
+                    <label>District</label>
+                    <input type="text" name="district" placeholder={user.district} readOnly />
+                    <label>Association</label>
+                    <input type="text" name="association" placeholder={user.association} readOnly />
+                    <button>Back</button>
                 </form>
             </div>
         </div>

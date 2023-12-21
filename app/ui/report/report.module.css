@@ -1,1 +1,79 @@
-.container {}
+.container {
+    padding: 15px 10px 10px 10px;
+    margin: 20px 5px 5px 5px;
+    background-color: white;
+    height: 900px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.list {
+    display: flex;
+    background-color: var(--mainColor);
+    padding: 10px 0px 10px 20px;
+    margin-top: 10px;
+    height: 90px;
+    border-radius: 10px;
+}
+
+.report {
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.icons {
+    width: 40px;
+    height: 40px;
+}
+
+.table {
+    width: 100%;
+}
+
+.table td {
+    padding: 10px;
+}
+
+.icon {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.a {
+    width: 5%;
+}
+
+.b {
+    width: 80%;
+}
+
+.c {
+    width: 10%;
+}
+
+.productImage {
+    border-radius: 50%;
+    object-fit: cover;
+}
+
+.buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.button {
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: var(--text);
+    border: none;
+    cursor: pointer;
+}
+
+.button:hover {
+    filter: brightness(80%);
+}
+
+.delete {
+    background-color: orange;
+}

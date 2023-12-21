@@ -1,37 +1,46 @@
-import styles from '@/app/ui/dashboard/users/singleUserVendor/singleUserVendor.module.css'
+import styles from '@/app/ui/dashboard/users/singleUser/singleUserVendor.module.css'
 import Image from 'next/image'
+import { fetchUserVendor } from "@/app/lib/data";
+import { updateUserVendor } from '@/app/lib/actions';
 
-const SingleUserVendorPage = () => {
+const SingleUserVendorPage = async ({ params }) => {
+
+    const { id } = params;
+    const user = await fetchUserVendor(id);
+
     return (
         <div className={styles.container}>
             <div className={styles.infoContainer}>
                 <div className={styles.imgContainer}>
-                    <Image src="/noavatar.png" alt="" fill />
+                    <Image src={user.img || "/noavatar.png"} alt="" fill />
                 </div>
-                Muhammad Rafiq
+                <div className={styles.belowImg}>
+                    {user.vendorname}
+                </div>
 
             </div>
             <div className={styles.formContainer}>
-                <form action="" className={styles.form}>
-                    <label>Username</label>
-                    <input type="text" name="username" placeholder="MuhammadRafiq" />
-                    <label>Email</label>
-                    <input type="email" name="email" placeholder="rafiq@gmail.com" />
-                    <label>Password</label>
-                    <input type="password" name="password" />
-                    <label>Phone</label>
-                    <input type="text" name="phone" placeholder="011029384623" />
-                    <label>Address</label>
-                    <textarea type="text" name="address" placeholder="Kajang, Selangor" />
-                    <label>Is Admin?</label>
-                    <select name="isAdmin" id="isAdmin">
-                        <option value={true}>Yes</option>
-                        <option value={false}>No</option>
-                    </select>
-                    <label>Is Active?</label>
-                    <select name="isActive" id="isActive">
-                        <option value={true}>Yes</option>
-                        <option value={false}>No</option>
+                <form action={updateUserVendor} className={styles.form}>
+                    <input type="hidden" name="id" value={user.id} />
+                    <label>Vendor Name</label>
+                    <input type="text" name="vendorname" placeholder={user.vendorname} readOnly />
+                    <label>Registration Date</label>
+                    <input type="text" name="registrationdate" placeholder={user.registrationdate} readOnly />
+                    <label>District</label>
+                    <input type="text" name="district" placeholder={user.district} readOnly />
+                    <label>Business Type</label>
+                    <input type="text" name="businesstype" placeholder={user.businesstype} readOnly />
+                    <p className={styles.status1}>
+                        <label>Current status:</label>
+                        {user.status ? (
+                            <span style={{ color: 'green', fontWeight: 'bold' }}> Verified</span>
+                        ) : (
+                            <span style={{ color: 'red', fontWeight: 'bold' }}> Unverified</span>
+                        )}
+                    </p>
+                    <select name="status" id="status">
+                        <option value="true" selected={user.status}>Verified</option>
+                        <option value="false" selected={!user.status}>Unverified</option>
                     </select>
                     <button>Update</button>
                 </form>

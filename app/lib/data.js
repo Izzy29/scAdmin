@@ -5,7 +5,7 @@ import { connectToDB } from "./utils";
 export const fetchUsers = async (q, page) => {
     const regex = new RegExp(q, "i");
 
-    const ITEM_PER_PAGE = 3;
+    const ITEM_PER_PAGE = 5;
 
     try {
         connectToDB()
@@ -34,5 +34,31 @@ export const fetchUsersVol = async (q, page) => {
     } catch (err) {
         console.log(err);
         throw new Error("Failed to fetch users!");
+    }
+}
+
+//To fetch single vendor information
+export const fetchUserVendor = async (id) => {
+    try {
+        connectToDB()
+        const user = await UserVen.findById(id);
+        return user;
+
+    } catch (err) {
+        console.log(err);
+        throw new Error("Failed to fetch the user!");
+    }
+}
+
+//To fetch single volunteer information
+export const fetchUserVolunteer = async (id) => {
+    try {
+        connectToDB()
+        const user = await UserVol.findById(id);
+        return user;
+
+    } catch (err) {
+        console.log(err);
+        throw new Error("Failed to fetch the user!");
     }
 }

@@ -50,5 +50,32 @@ const userVolunteerSchema = new mongoose.Schema(
     { timestamps: true }
 );
 
+const userAdmin = new mongoose.Schema(
+    {
+        username: {
+            type: String,
+            required: true
+        },
+        name: {
+            type: String,
+            required: true
+        },
+        password: {
+            type: String,
+            required: true
+        },
+        position: {
+            type: String,
+            required: true
+        },
+        img: {
+            type: String,
+            required: true
+        }
+    },
+    { timestamps: true }
+);
+
 export const UserVen = mongoose.models.UserVendor || mongoose.model("UserVendor", userVendorSchema);
 export const UserVol = mongoose.models.UserVolunteer || mongoose.model("UserVolunteer", userVolunteerSchema);
+export const UserAd = mongoose.models.UserAdmin || mongoose.model("UserAdmin", userAdmin);

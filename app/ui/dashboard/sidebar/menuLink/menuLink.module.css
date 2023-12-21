@@ -13,7 +13,7 @@
 }
 
 .container.active {
-    background-color: #2BA40A;
+    background-color: var(--mainColor);
     font-size: 15px;
     font-weight: bold;
     color: white;

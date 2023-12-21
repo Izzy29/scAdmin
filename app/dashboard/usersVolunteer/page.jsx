@@ -4,6 +4,7 @@ import Pagination from "@/app/ui/dashboard/pagination/pagination";
 import Link from "next/link";
 import Image from "next/image";
 import { fetchUsersVol } from "@/app/lib/data";
+import { deleteUserVolunteer } from "@/app/lib/actions";
 
 const UsersVolunteerPage = async ({ searchParams }) => {
 
@@ -46,14 +47,17 @@ const UsersVolunteerPage = async ({ searchParams }) => {
                             <td>{user.association}</td>
                             <td>
                                 <div className={styles.buttons}>
-                                    <Link href={`/dashboard/users/${user.id}`}>
+                                    <Link href={`/dashboard/usersVolunteer/${user.id}`}>
                                         <button className={`${styles.button} ${styles.view}`}>
                                             View
                                         </button>
                                     </Link>
-                                    <button className={`${styles.button} ${styles.delete}`}>
-                                        Delete
-                                    </button>
+                                    <form action={deleteUserVolunteer}>
+                                        <input type="hidden" name="id" value={user.id} />
+                                        <button className={`${styles.button} ${styles.delete}`}>
+                                            Delete
+                                        </button>
+                                    </form>
                                 </div>
                             </td>
                         </tr>

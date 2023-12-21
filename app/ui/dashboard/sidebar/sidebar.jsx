@@ -1,3 +1,4 @@
+import { auth, signOut } from "@/app/auth";
 import MenuLink from "./menuLink/menuLink";
 import styles from "./sidebar.module.css";
 import Image from "next/image";
@@ -6,7 +7,6 @@ import {
     MdDashboard,
     MdAnalytics,
     MdPeople,
-    MdOutlineSettings,
     MdHelpCenter,
     MdLogout,
     MdAnnouncement,
@@ -52,11 +52,6 @@ const menuItems = [
         title: "User",
         list: [
             {
-                title: "Settings",
-                path: "/dashboard/settings",
-                icon: <MdOutlineSettings />,
-            },
-            {
                 title: "Help",
                 path: "/dashboard/help",
                 icon: <MdHelpCenter />,
@@ -65,14 +60,17 @@ const menuItems = [
     },
 ];
 
-const Sidebar = () => {
+const Sidebar = async () => {
+
+    const { user } = await auth();
+
     return (
         <div className={styles.container}>
             <div className={styles.user}>
-                <Image className={styles.userImage} src="/noavatar.png" alt="" width="50" height="50" />
+                <Image className={styles.userImage} src={user.img || "/noavatar.png"} alt="" width="50" height="50" />
                 <div className={styles.userDetail}>
-                    <span className={styles.username}>Muhamad Izrin</span>
-                    <span className={styles.userTitle}>System Administrator</span>
+                    <span className={styles.username}>{user.name}</span>
+                    <span className={styles.userTitle}>{user.position}</span>
                 </div>
             </div>
             <ul className={styles.list}>
@@ -85,11 +83,15 @@ const Sidebar = () => {
                     </li>
                 ))}
             </ul>
-
-            <button className={styles.logout}>
-                <MdLogout />
-                Logout
-            </button>
+            <form action={async () => {
+                "use server"
+                await signOut();
+            }}>
+                <button className={styles.logout}>
+                    <MdLogout />
+                    Logout
+                </button>
+            </form>
 
         </div>
     )

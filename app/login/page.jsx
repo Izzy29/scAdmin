@@ -1,17 +1,10 @@
-import styles from "@/app/ui/login/login.module.css"
-import Link from "next/link"
+import LoginForm from "../ui/login/loginForm/loginForm"
+import styles from "@/app/ui/login/login.module.css";
 
 const LoginPage = () => {
   return (
     <div className={styles.container}>
-      <form action="" className={styles.form}>
-        <h1>Login</h1>
-        <input type="text" placeholder="username" />
-        <input type="text" placeholder="password" />
-        <Link href="/dashboard">
-          <button>Login</button>
-        </Link>
-      </form>
+      <LoginForm />
     </div>
   )
 }

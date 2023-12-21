@@ -11,6 +11,7 @@ const Navbar = () => {
     useEffect(() => {
         // Your logic to determine the title based on the selection
         const getTitleFromSelection = (selection) => {
+            console.log(selection);
             switch (selection) {
                 case 'dashboard':
                     return 'Dashboard ';
@@ -24,8 +25,10 @@ const Navbar = () => {
                     return 'Reports';
                 case 'settings':
                     return 'Settings';
-                default:
+                case 'help':
                     return 'Help';
+                default:
+                    return 'User Information';
             }
         };
 
