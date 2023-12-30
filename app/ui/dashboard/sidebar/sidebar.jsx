@@ -14,7 +14,6 @@ import {
 
 const menuItems = [
     {
-        title: "Pages",
         list: [
             {
                 title: "Dashboard",
@@ -39,7 +38,6 @@ const menuItems = [
         ],
     },
     {
-        title: "Analytics",
         list: [
             {
                 title: "Reports",
@@ -49,11 +47,10 @@ const menuItems = [
         ],
     },
     {
-        title: "User",
         list: [
             {
-                title: "Help",
-                path: "/dashboard/help",
+                title: "FAQ",
+                path: "/dashboard/FAQ",
                 icon: <MdHelpCenter />,
             },
         ],

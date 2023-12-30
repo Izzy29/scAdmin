@@ -13,11 +13,15 @@ const LoginForm = () => {
 
     return (
         <form action={formAction} className={styles.form}>
+
             <h1>Admin Login</h1>
+
             {state && <p className={styles.errorMessage}>{state}</p>}
+
             <div className={styles.inputform}>
                 <p><FaUser /><input type="text" placeholder="username" name="username" required /></p>
             </div>
+
             <div className={styles.inputform}>
                 <p><FaLock />
                     <input type={showPassword ? 'text' : 'password'} placeholder="password" name="password" required />
@@ -29,7 +33,9 @@ const LoginForm = () => {
                         {showPassword ? <FaEyeSlash className={styles.icon} /> : <FaEye className={styles.icon} />}
                     </button></p>
             </div>
+
             <button className={styles.button2}>Login</button>
+
         </form>
     )
 }

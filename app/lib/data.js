@@ -1,4 +1,4 @@
-import { UserVen, UserVol } from "./model"
+import { UserVen, UserVol, StudRecFood } from "./model"
 import { connectToDB } from "./utils";
 
 //To fetch vendor informations
@@ -23,7 +23,7 @@ export const fetchUsers = async (q, page) => {
 export const fetchUsersVol = async (q, page) => {
     const regex = new RegExp(q, "i");
 
-    const ITEM_PER_PAGE = 3;
+    const ITEM_PER_PAGE = 5;
 
     try {
         connectToDB()
@@ -55,6 +55,18 @@ export const fetchUserVolunteer = async (id) => {
     try {
         connectToDB()
         const user = await UserVol.findById(id);
+        return user;
+
+    } catch (err) {
+        console.log(err);
+        throw new Error("Failed to fetch the user!");
+    }
+}
+
+export const fetchStudRecFood = async () => {
+    try {
+        connectToDB()
+        const user = await StudRecFood.find({});
         return user;
 
     } catch (err) {

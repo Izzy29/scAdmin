@@ -25,8 +25,8 @@ const Navbar = () => {
                     return 'Reports';
                 case 'settings':
                     return 'Settings';
-                case 'help':
-                    return 'Help';
+                case 'FAQ':
+                    return 'Frequent Asked Question (FAQ)';
                 default:
                     return 'User Information';
             }

@@ -1,6 +1,6 @@
 import styles from "@/app/ui/help/help.module.css"
 
-const Help = () => {
+const FAQ = () => {
     return (
         <div className={styles.container}>
             <div className={styles.box}>
@@ -23,4 +23,4 @@ const Help = () => {
     )
 }
 
-export default Help;
+export default FAQ;

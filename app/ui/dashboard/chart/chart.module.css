@@ -14,3 +14,24 @@
     font-size: 15px;
     text-align: center;
 }
+
+.tooltip {
+    background: white;
+    border: 1px solid #4FAF5A;
+    padding: 15px;
+}
+
+.tooltip1 {
+    color: red;
+    font-size: small;
+}
+
+.tooltip2 {
+    color: #bababa;
+    font-size: small;
+}
+
+.tooltip3 {
+    color: #8884d8;
+    font-size: small;
+}

@@ -76,6 +76,21 @@ const userAdmin = new mongoose.Schema(
     { timestamps: true }
 );
 
+const studentReceivedFood = new mongoose.Schema(
+    {
+        day: {
+            type: String,
+            required: true
+        },
+        numStud: {
+            type: Number,
+            required: true
+        },
+    },
+    { timestamps: true }
+);
+
 export const UserVen = mongoose.models.UserVendor || mongoose.model("UserVendor", userVendorSchema);
 export const UserVol = mongoose.models.UserVolunteer || mongoose.model("UserVolunteer", userVolunteerSchema);
 export const UserAd = mongoose.models.UserAdmin || mongoose.model("UserAdmin", userAdmin);
+export const StudRecFood = mongoose.models.StudentReceivedFood || mongoose.model("StudentReceivedFood", studentReceivedFood);

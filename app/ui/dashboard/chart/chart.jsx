@@ -5,43 +5,63 @@ import { LineChart, Line, XAxis, YAxis, Tooltip, Legend, ResponsiveContainer } f
 
 const data = [
     {
-        name: "Sun",
-        visit: 4000,
-        click: 2400,
+        day: "21/1",
+        food: 4000,
+        estimation: 2400,
     },
     {
-        name: "Mon",
-        visit: 3000,
-        click: 1398,
+        day: "22/1",
+        food: 3000,
+        estimation: 1398,
     },
     {
-        name: "Tue",
-        visit: 2000,
-        click: 3800,
+        day: "23/1",
+        food: 2000,
+        estimation: 3800,
     },
     {
-        name: "Wed",
-        visit: 2780,
-        click: 3908,
+        day: "24/1",
+        food: 2780,
+        estimation: 3908,
     },
     {
-        name: "Thu",
-        visit: 1890,
-        click: 4800,
+        day: "25/1",
+        food: 1890,
+        estimation: 4800,
     },
     {
-        name: "Fri",
-        visit: 2390,
-        click: 3800,
+        day: "26/1",
+        food: 2390,
+        estimation: 3800,
     },
     {
-        name: "Sat",
-        visit: 3490,
-        click: 4300,
+        day: "27/1",
+        food: 3490,
+        estimation: 4300,
     },
 ];
 
+const CustomTooltip = ({ active, payload }) => {
+    if (active) {
+
+        return (
+            <div className={styles.tooltip}>
+                <p className={styles.tooltip3}>{`Number of Student: ${payload[0].value}`}</p>
+                <p className={styles.tooltip2}>{`Estimation: ${payload[1].value}`}</p>
+            </div>
+        );
+    }
+
+    return null;
+};
+
 const Chart = () => {
+
+    const customPayload = [
+        { value: 'Number of Student', type: 'line', id: 'food', color: '#8884d8' },
+        { value: 'Estimation', type: 'line', id: 'estimation', color: '#bababa' },
+    ];
+
     return (
         <div className={styles.container}>
             <h2 className={styles.title}>Number of Student Received the Food</h2>
@@ -53,20 +73,20 @@ const Chart = () => {
                     margin={{
                         top: 5,
                         right: 30,
-                        left: 0,
+                        left: 20,
                         bottom: 5,
                     }}
                 >
-                    <XAxis dataKey="name" />
+                    <XAxis dataKey="day" />
                     <YAxis />
-                    <Tooltip contentStyle={{ background: "#151c2c", border: "none" }} />
-                    <Legend />
-                    <Line type="monotone" dataKey="visit" stroke="#8884d8" strokeDasharray="5 5" />
-                    <Line type="monotone" dataKey="click" stroke="#82ca9d" strokeDasharray="3 4 5 2" />
+                    <Tooltip content={<CustomTooltip />} />
+                    <Legend payload={customPayload} />
+                    <Line type="monotone" dataKey="food" stroke="#8884d8" />
+                    <Line type="monotone" dataKey="estimation" stroke="#bababa" strokeDasharray="3 4 5 2" />
                 </LineChart>
             </ResponsiveContainer>
         </div>
-    )
-}
+    );
+};
 
-export default Chart
+export default Chart;

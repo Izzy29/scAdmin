@@ -4,9 +4,9 @@ import Card3 from "../ui/dashboard/card/card3";
 import Chart from "../ui/dashboard/chart/chart";
 import Chart2 from "../ui/dashboard/chart/chart2";
 import Chart3 from "../ui/dashboard/chart/chart3";
+import Chart4 from "../ui/dashboard/chart/chart4";
 import styles from "../ui/dashboard/dashboard.module.css";
 import Rightbar from "../ui/dashboard/rightbar/rightbar";
-import Transactions from "../ui/dashboard/transactions/transactions";
 
 const Dashboard = () => {
   return (
@@ -19,10 +19,10 @@ const Dashboard = () => {
         </div>
         <div className={styles.secondRow}>
           <div className={styles.firstChart}>
-            <Chart />
+            <Chart2 />
           </div>
           <div className={styles.secondChart}>
-            <Chart2 />
+            <Chart />
           </div>
         </div>
         <div className={styles.thirdRow}>
@@ -30,12 +30,12 @@ const Dashboard = () => {
             <Chart3 />
           </div>
           <div className={styles.secondChart}>
-            <Transactions />
+            <Chart4 />
           </div>
         </div>
       </div>
       <div className={styles.side}>
-        <Rightbar />
+        {/*<Rightbar />*/}
       </div>
     </div>
   );
