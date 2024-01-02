@@ -83,3 +83,7 @@ export const authenticate = async (prevState, formData) => {
         throw err;
     }
 };
+
+export const handleBack = () => {
+    redirect('/dashboard/usersVendor');
+}

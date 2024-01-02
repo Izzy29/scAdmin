@@ -34,9 +34,6 @@ const Dashboard = () => {
           </div>
         </div>
       </div>
-      <div className={styles.side}>
-        {/*<Rightbar />*/}
-      </div>
     </div>
   );
 };

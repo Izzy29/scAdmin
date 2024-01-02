@@ -2,6 +2,7 @@ import styles from '@/app/ui/dashboard/users/singleUser/singleUserVendor.module.
 import Image from 'next/image'
 import { fetchUserVendor } from "@/app/lib/data";
 import { updateUserVendor } from '@/app/lib/actions';
+import Link from 'next/link';
 
 const SingleUserVendorPage = async ({ params }) => {
 
@@ -42,10 +43,19 @@ const SingleUserVendorPage = async ({ params }) => {
                         <option value="true" selected={user.status}>Verified</option>
                         <option value="false" selected={!user.status}>Unverified</option>
                     </select>
-                    <button>Update</button>
+                    <p className={styles.buttonContainer}>
+                        <Link href="./" className={styles.link} >
+                            <button className={styles.backButton} type="button">
+                                Back
+                            </button>
+                        </Link>
+                        <button className={styles.updateButton} type="submit">
+                            Update
+                        </button>
+                    </p>
                 </form>
             </div>
-        </div>
+        </div >
     )
 }
 

@@ -3,7 +3,7 @@ import Search from "@/app/ui/dashboard/search/search";
 import Pagination from "@/app/ui/dashboard/pagination/pagination";
 import Link from "next/link";
 import Image from "next/image";
-import { fetchUsers } from "@/app/lib/data";
+import { fetchUsers, fetchUsersVendor } from "@/app/lib/data";
 import { deleteUserVendor } from "@/app/lib/actions";
 
 const UsersVendorPage = async ({ searchParams }) => {
@@ -19,7 +19,7 @@ const UsersVendorPage = async ({ searchParams }) => {
 
             </div>
             <table className={styles.table}>
-                <thead>
+                <thead className={styles.header}>
                     <tr>
                         <td>Vendor Name</td>
                         <td>Registration Date</td>
@@ -48,9 +48,9 @@ const UsersVendorPage = async ({ searchParams }) => {
                             <td>{user.businesstype}</td>
                             <td>
                                 {user.status ? (
-                                    <span style={{ color: 'green', fontWeight: 'bold' }}>Verified✅</span>
+                                    <span style={{ color: 'green', fontWeight: 'bold' }}>Verified</span>
                                 ) : (
-                                    <span style={{ color: 'red', fontWeight: 'bold' }}>Unverified❌</span>
+                                    <span style={{ color: 'red', fontWeight: 'bold' }}>Unverified</span>
                                 )}
                             </td>
                             <td>

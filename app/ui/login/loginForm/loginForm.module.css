@@ -1,5 +1,11 @@
 .form {
-    background-color: var(--bgSoft);
+    background:
+        /* top, transparent black, faked with gradient */
+        linear-gradient(rgba(0, 0, 0, 0.7),
+            rgba(0, 0, 0, 0.7)),
+        /* bottom, image */
+        url('/loginfood.jpg');
+    background-size: 100%;
     padding: 50px;
     border-radius: 10px;
     width: 800px;
@@ -9,6 +15,12 @@
     justify-content: center;
     gap: 30px;
     align-items: center;
+    box-shadow: 10px 10px 10px #4FAF5A;
+}
+
+.login {
+    text-align: center;
+    color: white;
 }
 
 .inputform {

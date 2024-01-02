@@ -14,7 +14,7 @@ const LoginForm = () => {
     return (
         <form action={formAction} className={styles.form}>
 
-            <div>
+            <div className={styles.login}>
                 <h1>Sharecare</h1>
                 <h2>Food Distribution Management System Dashboard</h2>
             </div>

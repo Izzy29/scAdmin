@@ -16,6 +16,9 @@ const Pagination = ({ count }) => {
     const hasPrev = ITEM_PER_PAGE * (parseInt(page) - 1) > 0;
     const hasNext = (ITEM_PER_PAGE * (parseInt(page) - 1) + ITEM_PER_PAGE) < count;
 
+    const currentPage = parseInt(page);
+    const totalPages = Math.ceil(count / ITEM_PER_PAGE);
+
     const handleChangePage = (type) => {
         type === "prev"
             ? params.set("page", parseInt(page) - 1)
@@ -32,6 +35,9 @@ const Pagination = ({ count }) => {
             >
                 Previous
             </button>
+            <span className={styles.pageInfo}>
+                Page {currentPage} of {totalPages}
+            </span>
             <button
                 className={styles.button}
                 disabled={!hasNext}

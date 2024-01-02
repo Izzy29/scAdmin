@@ -40,7 +40,7 @@ const menuItems = [
     {
         list: [
             {
-                title: "Reports",
+                title: "Document and Report",
                 path: "/dashboard/report",
                 icon: <MdAnalytics />,
             },
@@ -80,16 +80,6 @@ const Sidebar = async () => {
                     </li>
                 ))}
             </ul>
-            <form action={async () => {
-                "use server"
-                await signOut();
-            }}>
-                <button className={styles.logout}>
-                    <MdLogout />
-                    Logout
-                </button>
-            </form>
-
         </div>
     )
 }

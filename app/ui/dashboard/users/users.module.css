@@ -24,10 +24,15 @@
 
 .table {
     width: 100%;
+    margin: 20px 0px 20px 0px;
 }
 
 .table td {
     padding: 10px;
+}
+
+.header {
+    font-weight: bold;
 }
 
 .user {
@@ -47,9 +52,9 @@
 }
 
 .button {
-    padding: 5px 10px;
+    padding: 5px 15px;
     border-radius: 5px;
-    color: var(--text);
+    color: white;
     border: none;
     cursor: pointer;
 }

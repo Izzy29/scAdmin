@@ -12,3 +12,10 @@
 .button:disabled {
     cursor: not-allowed;
 }
+
+.pageInfo {
+    font-size: 14px;
+    margin: 0 10px;
+    color: #555;
+    /* Adjust the color to your preference */
+}
