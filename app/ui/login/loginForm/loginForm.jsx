@@ -14,8 +14,10 @@ const LoginForm = () => {
     return (
         <form action={formAction} className={styles.form}>
 
-            <h1>Admin Login</h1>
-
+            <div>
+                <h1>Sharecare</h1>
+                <h2>Food Distribution Management System Dashboard</h2>
+            </div>
             {state && <p className={styles.errorMessage}>{state}</p>}
 
             <div className={styles.inputform}>
